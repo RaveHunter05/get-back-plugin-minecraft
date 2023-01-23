@@ -7,10 +7,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class GetBackCommand implements CommandExecutor {
+public class LastDeathCommand implements CommandExecutor {
     private final Get_back getBackPlugin;
 
-    public GetBackCommand(Get_back getBackPlugin) {
+    public LastDeathCommand(Get_back getBackPlugin) {
         this.getBackPlugin = getBackPlugin;
     }
 
@@ -19,12 +19,12 @@ public class GetBackCommand implements CommandExecutor {
 
         if(sender instanceof Player){
             Player player = (Player) sender;
-            Location deathLocation = getBackPlugin.getConfig().getLocation("last-instance-" + String.valueOf(player.getPlayer().getUniqueId()));
+            Location deathLocation = getBackPlugin.getConfig().getLocation("death-" + String.valueOf(player.getPlayer().getUniqueId()));
             if(deathLocation != null ){
                 player.teleport(deathLocation);
-                player.sendMessage("Teletransportado a la ultima instancia");
+                player.sendMessage("Teletransportado al ultimo punto donde moriste");
             }else{
-                player.sendMessage("No te has teletransportado todavia");
+                player.sendMessage("No has muerto todavia");
             }
 
         }

@@ -6,4 +6,6 @@ authors: [ RaveHunter05 ]
 description: Plugin to get back after death
 commands:
   back:
-    description: Get back to the point where you died
+    description: Get back to the last instance you were
+  death:
+    description: Get back to the last point where you died
